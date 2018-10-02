@@ -41,6 +41,7 @@ class ApiController extends Controller
             'beneficiary' => GlobalDtoValidator::requireStringMinMax(1, 100),
             'type' => GlobalDtoValidator::requireStringMinMax(1, 100),
             'verification_code' => GlobalDtoValidator::requireStringMinMax(1, 150),
+
         ];
 
 
@@ -76,6 +77,9 @@ class ApiController extends Controller
         }catch (\Exception $e){
 
             DB::rollBack();
+
+
+            return response(GlobalResultHandler::buildFaillureReasonArray($e->getMessage()), 200);
 
 
             return response(GlobalResultHandler::buildFaillureReasonArray('Unable to register Receipt'), 200);

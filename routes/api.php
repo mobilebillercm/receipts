@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 
 ///API ROUTES
-Route::post('/receipts', 'ApiController@registerReceiptFromAndroid');
+Route::post('/receipts', 'ApiController@registerReceiptFromAndroid')->middleware('rabbitmq.client');
 
 
 
