@@ -16,12 +16,13 @@ class Receipt extends Model
 
     protected $table = 'receipts';
 
-    protected $fillable = ['receiptid', 'userid', 'tenantid', 'transactionid', 'amount', 'address', 'date', 'body', 'date_sent', 'current_balance', 'available_balance','beneficiary','type','verification_code', 'duplicata'];
+    protected $fillable = ['receiptid', 'userid', 'tenantid', 'transactionid', 'amount', 'address', 'date', 'body', 'date_sent',
+        'current_balance', 'available_balance','beneficiary','type','verification_code', 'duplicata', 'made_by', 'currency'];
 
 
     public function __construct($receiptid = null, $userid = null, $tenantid = null, $transactionid = null, $amount = null, $address = null,
                                 $date = null, $body = null, $date_sent = null, $current_balance = null,  $available_balance = null, $beneficiary = null,
-                                $type = null, $verification_code = null, $duplicata = null, $attributes = array())
+                                $type = null, $verification_code = null, $duplicata = null, $made_by = null,  $currency = null, $attributes = array())
     {
         parent::__construct($attributes);
         $this->receiptid = $receiptid;
@@ -38,6 +39,8 @@ class Receipt extends Model
         $this->beneficiary = $beneficiary;
         $this->type = $type;
         $this->verification_code = $verification_code;
-        $this->duplicata = true;
+        $this->duplicata = $duplicata;
+        $this->made_by = $made_by;
+        $this->currency = $currency;
     }
 }

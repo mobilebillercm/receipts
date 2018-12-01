@@ -15,45 +15,9 @@ use Illuminate\Http\Request;
 
 
 ///API ROUTES
-Route::post('/receipts', 'ApiController@registerReceiptFromAndroid')->middleware('rabbitmq.client');
+Route::post('/receipts-android', 'ApiController@registerReceiptFromAndroid')->middleware('android.client');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::post('/bulk-receipts-android', 'ApiController@registerBulkReceiptFromAndroid')->middleware('android.client');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
